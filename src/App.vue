@@ -1,22 +1,60 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <div class="flex h-screen">
+    <div class="w-1/4 mt-5 ml-10">
+    <!-- logo -->
+      <i class="fab fa-twitter text-2xl text-primary ml-4"></i>
+      <!-- side menu -->
+      <div class="flex flex-col items-start">        
+        <div class="hover:text-primary hover:bg-blue-50 px-4 py-2 rounded-full">
+          <i class="fas fa-home fa-fw text-2xl"></i>
+          <spa class="ml-3 text-lg">홈</spa>
+        </div>
+        <div class="hover:text-primary hover:bg-blue-50 px-4 py-2 rounded-full">
+          <i class="fas fa-hashtag fa-fw text-2xl"></i>
+          <spa class="ml-3 text-lg">탐색하기</spa>
+        </div>
+        <div class="hover:text-primary hover:bg-blue-50 px-4 py-2 rounded-full">
+          <i class="far fa-bell fa-fw text-2xl"></i>
+          <spa class="ml-3 text-lg">알림</spa>
+        </div>
+        <div class="hover:text-primary hover:bg-blue-50 px-4 py-2 rounded-full">
+          <i class="far fa-envelope fa-fw text-2xl"></i>
+          <spa class="ml-3 text-lg">쪽지</spa>
+        </div>
+        <div class="hover:text-primary hover:bg-blue-50 px-4 py-2 rounded-full">
+          <i class="far fa-bookmark fa-fw text-2xl"></i>
+          <spa class="ml-3 text-lg">북마크</spa>
+        </div>
+        <div class="hover:text-primary hover:bg-blue-50 px-4 py-2 rounded-full">
+          <i class="far fa-list-alt fa-fw text-2xl"></i>
+          <spa class="ml-3 text-lg">리스트</spa>
+        </div>
+        <div class="hover:text-primary hover:bg-blue-50 px-4 py-2 rounded-full">
+          <i class="far fa-user fa-fw text-2xl"></i>
+          <spa class="ml-3 text-lg">프로필</spa>
+        </div>
+        <div class="hover:text-primary hover:bg-blue-50 px-4 py-2 rounded-full">
+          <i class="fas fa-ellipsis-h fa-fw text-2xl"></i>
+          <spa class="ml-3 text-lg">더보기</spa>
+        </div>
+        <ul></ul>
+      </div>
+      <div class="w-full h-12">
+        <button class="mt-3 bg-primary text-white w-60 h-12 rounded-full hover:bg-dark">
+          Tweet
+        </button>
+      </div>
+    </div>
+    <div class="flex-1 bg-red-200"></div>
+  </div>
 </template>
 
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+export default {
 
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
+}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

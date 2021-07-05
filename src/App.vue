@@ -80,279 +80,7 @@
               </div>
             </div>
             <!-- tweets -->
-            <div class="flex p-3 border-b border-gray-100">
-              <img src="https://picsum.photos/200" class="w-10 h-10 mr-3 rounded-full hover:opacity-70 cursor-pointer" alt="">
-              <div class="flex flex-1 flex-col space-y-1">
-                <div class="text-sm space-x-1">
-                  <span class="font-bold">방탄소년단</span>
-                  <span class="text-gray-500 text-xs">@BTS_twt</span>
-                  <span> · </span>
-                  <span class="text-gray-500 text-xs">7월 5일</span>
-                </div>
-                <div>
-                  다시 한 번 축하드려요 우리 아미
-                  그리고 다시 한 번 감사드립니다.
-                  그리고 더 힘내서 앞으로 나아갈게요.
-                  사랑합니다.
-                </div>
-                <div class="flex justify-between">
-                  <div class="text-gray-500 hover:text-primary rounded-full py-3">
-                    <i class="far fa-comment hover:bg-blue-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:green-500 rounded-full py-3">
-                    <i class="fas fa-retweet hover:bg-green-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:red-500 rounded-full py-3">
-                    <i class="far fa-heart hover:bg-green-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:green-500 rounded-full py-3">
-                    <i class="far fa-share-square"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="flex p-3 border-b border-gray-100">
-              <img src="https://picsum.photos/200" class="w-10 h-10 mr-3 rounded-full hover:opacity-70 cursor-pointer" alt="">
-              <div class="flex flex-1 flex-col space-y-1">
-                <div class="text-sm space-x-1">
-                  <span class="font-bold">방탄소년단</span>
-                  <span class="text-gray-500 text-xs">@BTS_twt</span>
-                  <span> · </span>
-                  <span class="text-gray-500 text-xs">7월 5일</span>
-                </div>
-                <div>
-                  다시 한 번 축하드려요 우리 아미
-                  그리고 다시 한 번 감사드립니다.
-                  그리고 더 힘내서 앞으로 나아갈게요.
-                  사랑합니다.
-                </div>
-                <div class="flex justify-between">
-                  <div class="text-gray-500 hover:text-primary rounded-full py-3">
-                    <i class="far fa-comment hover:bg-blue-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:green-500 rounded-full py-3">
-                    <i class="fas fa-retweet hover:bg-green-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:red-500 rounded-full py-3">
-                    <i class="far fa-heart hover:bg-green-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:green-500 rounded-full py-3">
-                    <i class="far fa-share-square"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="flex p-3 border-b border-gray-100">
-              <img src="https://picsum.photos/200" class="w-10 h-10 mr-3 rounded-full hover:opacity-70 cursor-pointer" alt="">
-              <div class="flex flex-1 flex-col space-y-1">
-                <div class="text-sm space-x-1">
-                  <span class="font-bold">방탄소년단</span>
-                  <span class="text-gray-500 text-xs">@BTS_twt</span>
-                  <span> · </span>
-                  <span class="text-gray-500 text-xs">7월 5일</span>
-                </div>
-                <div>
-                  다시 한 번 축하드려요 우리 아미
-                  그리고 다시 한 번 감사드립니다.
-                  그리고 더 힘내서 앞으로 나아갈게요.
-                  사랑합니다.
-                </div>
-                <div class="flex justify-between">
-                  <div class="text-gray-500 hover:text-primary rounded-full py-3">
-                    <i class="far fa-comment hover:bg-blue-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:green-500 rounded-full py-3">
-                    <i class="fas fa-retweet hover:bg-green-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:red-500 rounded-full py-3">
-                    <i class="far fa-heart hover:bg-green-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:green-500 rounded-full py-3">
-                    <i class="far fa-share-square"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="flex p-3 border-b border-gray-100">
-              <img src="https://picsum.photos/200" class="w-10 h-10 mr-3 rounded-full hover:opacity-70 cursor-pointer" alt="">
-              <div class="flex flex-1 flex-col space-y-1">
-                <div class="text-sm space-x-1">
-                  <span class="font-bold">방탄소년단</span>
-                  <span class="text-gray-500 text-xs">@BTS_twt</span>
-                  <span> · </span>
-                  <span class="text-gray-500 text-xs">7월 5일</span>
-                </div>
-                <div>
-                  다시 한 번 축하드려요 우리 아미
-                  그리고 다시 한 번 감사드립니다.
-                  그리고 더 힘내서 앞으로 나아갈게요.
-                  사랑합니다.
-                </div>
-                <div class="flex justify-between">
-                  <div class="text-gray-500 hover:text-primary rounded-full py-3">
-                    <i class="far fa-comment hover:bg-blue-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:green-500 rounded-full py-3">
-                    <i class="fas fa-retweet hover:bg-green-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:red-500 rounded-full py-3">
-                    <i class="far fa-heart hover:bg-green-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:green-500 rounded-full py-3">
-                    <i class="far fa-share-square"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="flex p-3 border-b border-gray-100">
-              <img src="https://picsum.photos/200" class="w-10 h-10 mr-3 rounded-full hover:opacity-70 cursor-pointer" alt="">
-              <div class="flex flex-1 flex-col space-y-1">
-                <div class="text-sm space-x-1">
-                  <span class="font-bold">방탄소년단</span>
-                  <span class="text-gray-500 text-xs">@BTS_twt</span>
-                  <span> · </span>
-                  <span class="text-gray-500 text-xs">7월 5일</span>
-                </div>
-                <div>
-                  다시 한 번 축하드려요 우리 아미
-                  그리고 다시 한 번 감사드립니다.
-                  그리고 더 힘내서 앞으로 나아갈게요.
-                  사랑합니다.
-                </div>
-                <div class="flex justify-between">
-                  <div class="text-gray-500 hover:text-primary rounded-full py-3">
-                    <i class="far fa-comment hover:bg-blue-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:green-500 rounded-full py-3">
-                    <i class="fas fa-retweet hover:bg-green-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:red-500 rounded-full py-3">
-                    <i class="far fa-heart hover:bg-green-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:green-500 rounded-full py-3">
-                    <i class="far fa-share-square"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="flex p-3 border-b border-gray-100">
-              <img src="https://picsum.photos/200" class="w-10 h-10 mr-3 rounded-full hover:opacity-70 cursor-pointer" alt="">
-              <div class="flex flex-1 flex-col space-y-1">
-                <div class="text-sm space-x-1">
-                  <span class="font-bold">방탄소년단</span>
-                  <span class="text-gray-500 text-xs">@BTS_twt</span>
-                  <span> · </span>
-                  <span class="text-gray-500 text-xs">7월 5일</span>
-                </div>
-                <div>
-                  다시 한 번 축하드려요 우리 아미
-                  그리고 다시 한 번 감사드립니다.
-                  그리고 더 힘내서 앞으로 나아갈게요.
-                  사랑합니다.
-                </div>
-                <div class="flex justify-between">
-                  <div class="text-gray-500 hover:text-primary rounded-full py-3">
-                    <i class="far fa-comment hover:bg-blue-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:green-500 rounded-full py-3">
-                    <i class="fas fa-retweet hover:bg-green-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:red-500 rounded-full py-3">
-                    <i class="far fa-heart hover:bg-green-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:green-500 rounded-full py-3">
-                    <i class="far fa-share-square"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="flex p-3 border-b border-gray-100">
-              <img src="https://picsum.photos/200" class="w-10 h-10 mr-3 rounded-full hover:opacity-70 cursor-pointer" alt="">
-              <div class="flex flex-1 flex-col space-y-1">
-                <div class="text-sm space-x-1">
-                  <span class="font-bold">방탄소년단</span>
-                  <span class="text-gray-500 text-xs">@BTS_twt</span>
-                  <span> · </span>
-                  <span class="text-gray-500 text-xs">7월 5일</span>
-                </div>
-                <div>
-                  다시 한 번 축하드려요 우리 아미
-                  그리고 다시 한 번 감사드립니다.
-                  그리고 더 힘내서 앞으로 나아갈게요.
-                  사랑합니다.
-                </div>
-                <div class="flex justify-between">
-                  <div class="text-gray-500 hover:text-primary rounded-full py-3">
-                    <i class="far fa-comment hover:bg-blue-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:green-500 rounded-full py-3">
-                    <i class="fas fa-retweet hover:bg-green-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:red-500 rounded-full py-3">
-                    <i class="far fa-heart hover:bg-green-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:green-500 rounded-full py-3">
-                    <i class="far fa-share-square"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="flex p-3 border-b border-gray-100">
-              <img src="https://picsum.photos/200" class="w-10 h-10 mr-3 rounded-full hover:opacity-70 cursor-pointer" alt="">
-              <div class="flex flex-1 flex-col space-y-1">
-                <div class="text-sm space-x-1">
-                  <span class="font-bold">방탄소년단</span>
-                  <span class="text-gray-500 text-xs">@BTS_twt</span>
-                  <span> · </span>
-                  <span class="text-gray-500 text-xs">7월 5일</span>
-                </div>
-                <div>
-                  다시 한 번 축하드려요 우리 아미
-                  그리고 다시 한 번 감사드립니다.
-                  그리고 더 힘내서 앞으로 나아갈게요.
-                  사랑합니다.
-                </div>
-                <div class="flex justify-between">
-                  <div class="text-gray-500 hover:text-primary rounded-full py-3">
-                    <i class="far fa-comment hover:bg-blue-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:green-500 rounded-full py-3">
-                    <i class="fas fa-retweet hover:bg-green-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:red-500 rounded-full py-3">
-                    <i class="far fa-heart hover:bg-green-50"></i>
-                    <span class="ml-1 text-sm">11</span>
-                  </div>
-                  <div class="text-gray-500 hover:green-500 rounded-full py-3">
-                    <i class="far fa-share-square"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="flex p-3 border-b border-gray-100">
+            <div class="flex p-3 border-b border-gray-100" v-for="tweet in 20" :key="tweet">
               <img src="https://picsum.photos/200" class="w-10 h-10 mr-3 rounded-full hover:opacity-70 cursor-pointer" alt="">
               <div class="flex flex-1 flex-col space-y-1">
                 <div class="text-sm space-x-1">
@@ -389,7 +117,32 @@
           </div>
         </div>
         <!-- trend section -->
-        <div class="w-2/5">trend</div>
+        <div class="hidden lg:block lg:w-2/5 px-4 py-2">
+          <div class="relative">
+            <input type="text" class="rounded-full w-full p-2 pl-10 bg-gray-100 text-sm focus:ring-1 focus:ring-primary focus:bg-white focus:outline-none" placeholder="트위터 검색">
+            <i class="fas fa-search absolute left-0 m-3 text-light"></i>
+          </div>
+          <div class="mt-5 w-full rounded-xl bg-gray-50 flex flex-col">
+            <div class="flex items-center justify-between px-3 py-1 border-gray-100">
+              <span class="text-lg font-bold">나를 위한 트렌드</span>
+              <i class="fas fa-cog text-center text-lg text-primary hover:bg-blue-50"></i>
+            </div>
+            <!-- trend for me -->
+            <div class="border-b border-gray-100 hover:bg-gray-100 px-4 py-2" v-for="trend in 3" :key="trend">
+              <div class="flex">
+                <div class="flex flex-1 flex-col">
+                  <div class="text-gray-500">대한민국에서 트렌드 중</div>
+                  <div class="font-bold text-lg">러블리즈</div>
+                  <div class="text-gray-500">3,564 트윗</div>
+                </div>
+                <i class="fas fa-ellipsis-h text-gray-500"></i>
+              </div>
+            </div>
+            <div class="px-4 py-2 hover:text-gray-100">
+              <span class="text-primary text-lg rounded-t-xl">더보기</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

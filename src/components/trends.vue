@@ -31,15 +31,13 @@
       </div>            
       <div class="border-b border-gray-100 hover:bg-gray-100 px-4 py-2 cursor-pointer" v-for="trend in 3" :key="trend">
         <div class="flex items-center">
-          <div>
-            <img src="https://picsum.photos/200" class="w-12 h-12 rounded-full mr-2" alt="">
-          </div>
+          <img src="https://picsum.photos/200" class="w-12 h-12 rounded-full mr-2" alt="">
           <div class="flex flex-1 flex-col">
-            <div class="font-bold text-lg">방탄소년단</div>
-            <div class="text-gray-500">@BTS</div>
+            <div class="font-bold">방탄소년단</div>
+            <div class="text-gray-500 text-sm overflow-ellipsis">@BTS</div>
           </div>
           <div>
-            <button class="border-2 border-primary hover:bg-blue-100 px-4 py-1 text-primary rounded-full">팔로우</button>
+            <button class="border-2 border-primary hover:bg-blue-100 px-4 py-1 text-sm text-primary rounded-full">팔로우</button>
           </div>
         </div>
       </div>

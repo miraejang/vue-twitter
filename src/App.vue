@@ -63,15 +63,17 @@
 
     <!-- content -->
     <!-- <twitter-home></twitter-home> -->
-    <twitter-notifications></twitter-notifications>    
+    <!-- <twitter-notifications></twitter-notifications> -->
+    <twitter-messages></twitter-messages>
   </div>
 </template>
 
 <script>
 import TwitterHome from "./pages/home.vue";
 import TwitterNotifications from "./pages/notifications.vue";
+import TwitterMessages from "./pages/messages.vue";
 export default {
-  components: { TwitterHome, TwitterNotifications },
+  components: { TwitterHome, TwitterNotifications, TwitterMessages },
   setup() {}
 }
 </script>

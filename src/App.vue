@@ -62,22 +62,16 @@
     </div>
 
     <!-- content -->
-    <div class="flex flex-1 h-screen">
-      <!-- main section -->
-      <!-- <tweet-main></tweet-main> -->
-      <tweet-notifications></tweet-notifications>
-      <!-- trend section -->
-      <tweet-trends></tweet-trends>
-    </div>
+    <!-- <twitter-home></twitter-home> -->
+    <twitter-notifications></twitter-notifications>    
   </div>
 </template>
 
 <script>
-import TweetTrends from "./components/trends.vue";
-import TweetMain from "./pages/main.vue";
-import TweetNotifications from "./pages/notifications.vue";
+import TwitterHome from "./pages/home.vue";
+import TwitterNotifications from "./pages/notifications.vue";
 export default {
-  components: { TweetMain, TweetTrends, TweetNotifications },
+  components: { TwitterHome, TwitterNotifications },
   setup() {}
 }
 </script>

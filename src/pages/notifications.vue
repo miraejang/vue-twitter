@@ -20,14 +20,14 @@
       </div>
     </div>
     <!-- trend section -->
-    <twitter-trends></twitter-trends>
+    <trend-section></trend-section>
   </div>
 </template>
 
 <script>
-import TwitterTrends from "../components/trends.vue";
+import TrendSection from "../components/trends.vue";
 export default {
-  components: { TwitterTrends }
+  components: { TrendSection }
 }
 </script>
 

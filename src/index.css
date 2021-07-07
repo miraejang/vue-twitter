@@ -5,3 +5,11 @@
 button {
   @apply focus:outline-none;
 }
+
+.border-default {
+  @apply border-gray-100;
+}
+
+.text-light {
+  @apply text-gray-500;
+}

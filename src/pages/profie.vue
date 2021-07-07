@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-1">
+  <div class="flex flex-1 h-screen">
     <!-- profile section -->
     <div class="felx flex-1 flex-col border-r border-default">
       <!-- title -->
@@ -13,7 +13,7 @@
         </div>
       </div>
       <!-- profile image -->
-      <div class="h-40 bg-gray-300 relative">        
+      <div class="h-40 bg-gray-300 relative flex-none">
         <div class="absolute -bottom-14 left-2- w-28 h-28 rounded-full border-4 border-white bg-gray-100">
           <img src="https://picsum.photos/200" class="rounded-full opacity-90 hover:opacity-100 cursor-pointer" alt="">
         </div>
@@ -44,6 +44,10 @@
         <div class="w-1/4 py-3 border-b border-primary font-bold text-light text-center hover:bg-blue-50 hover:text-primary cursor-pointer">미디어</div>
         <div class="w-1/4 py-3 border-b border-primary font-bold text-light text-center hover:bg-blue-50 hover:text-primary cursor-pointer">마음에 들어요</div>
       </div>
+      <!-- tweets -->
+      <div class="overflow-y-scroll">
+        <tweet-form v-for="tweet in 10" :key="tweet"></tweet-form>
+      </div>
     </div>
     <!-- trend section -->
     <trend-section></trend-section>
@@ -52,8 +56,9 @@
 
 <script>
 import TrendSection from "../components/trends.vue";
+import TweetForm from "../components/tweet.vue";
 export default {
-  components: { TrendSection }
+  components: { TrendSection, TweetForm }
 }
 </script>
 

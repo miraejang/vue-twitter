@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-button {
+button,
+input {
   @apply focus:outline-none;
 }
 

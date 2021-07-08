@@ -7,7 +7,7 @@
         <i class="fab fa-twitter text-3xl text-primary ml-4 mb-3"></i>
         <!-- menu -->
         <div class="flex flex-col items-start space-y-1">
-          <router-link to="/" class="hover:text-primary hover:bg-blue-50 px-4 py-2 rounded-full cursor-pointer" v-for="route in routes" :key="route">
+          <router-link :to="`/vue-twitter-clone-coding${route.path}`" class="hover:text-primary hover:bg-blue-50 px-4 py-2 rounded-full cursor-pointer" v-for="route in routes" :key="route">
             <div v-if="route.meta.isMenu">
               <i class="text-2xl" :class="route.icon"></i>
               <span class="ml-3 text-lg hidden xl:inline-block">{{ route.title }}</span>

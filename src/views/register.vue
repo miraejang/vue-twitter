@@ -44,6 +44,20 @@ export default {
         router.push('/login')
       } catch(e) {
         // console.log("create user with email and password error:", e)
+        switch (e.code) {
+          case 'auth/invalid-email' :
+            alert('잘못된 이메일 형식입니다.')
+            break
+          case 'auth/wrong-password' :
+            alert('비밀번호가 틀립니다.')
+            break
+          case 'auth/user-not-found' :
+            alert('등록되지 않은 사용자 입니다.')
+            break
+          default:
+            alert(e.message)
+            break
+        }
         alert(e.message)
       } finally {
         loading.value = false

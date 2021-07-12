@@ -2,10 +2,11 @@
   <div class="flex flex-col flex-1 items-center space-y-4 mt-10">
     <i :class="`fab fa-twitter text-4xl text-primary ${loading ? 'animate-bounce' : ''}`"></i>
     <p class="text-2xl font-bold">뜨위떠 회원가입</p>
-    <input v-model="email" type="email" class="w-96 px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:border-primary" placeholder="이메일">
     <input v-model="username" type="text" class="w-96 px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:border-primary" placeholder="아이디">
+    <input v-model="email" type="email" class="w-96 px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:border-primary" placeholder="이메일">
     <input v-model="password" type="password" class="w-96 px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:border-primary" placeholder="비밀번호">
-    <button @click ="onRegister" class="w-96 rounded bg-primary text-white py-4 hover:bg-dark">회원가입</button>
+    <button v-if="loading" class="w-96 rounded bg-light text-white py-3">회원가입 중입니다.</button>
+    <button v-else @click ="onRegister" class="w-96 rounded bg-primary text-white py-3 hover:bg-dark">회원가입</button>
     <router-link to="/login">
       <button class="text-primary">계정이 이미 있으신가요? 로그인 하기</button>
     </router-link>
@@ -14,6 +15,8 @@
 
 <script>
 import { ref } from "vue"
+import { auth, USER_COLLECTION } from "/src/firebase";
+import { useRouter } from 'vue-router';
 
 export default {
   setup() {
@@ -21,11 +24,33 @@ export default {
     const username = ref('')
     const password = ref('')
     const loading = ref(false)
-    const onRegister = () => {
-      console.log(email.value, username.value, password.value)
+    const router = useRouter()
+
+    const onRegister = async () => {
+      try {
+        loading.value = true
+        const { user } = await auth.createUserWithEmailAndPassword(email.value, password.value)
+        const doc = USER_COLLECTION.doc(user.uid)
+        await doc.set({
+          uid: user.uid,
+          email: email.value,
+          profile_image_url: '/profile.jpeg',
+          num_tweets: 0,
+          followers: [],
+          followings: [],
+          create_at: Date.now()
+        })
+        alert("회원 가입에 성공하셨습니다. 로그인 해주세요.")
+        router.push('/login')
+      } catch(e) {
+        // console.log("create user with email and password error:", e)
+        alert(e.message)
+      } finally {
+        loading.value = false
+      }
     }
     
-    return { email, username, password, loading, onRegister }
+    return { username, email, password, loading, onRegister }
   }
 }
 </script>

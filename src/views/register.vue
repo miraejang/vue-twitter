@@ -27,6 +27,11 @@ export default {
     const router = useRouter()
 
     const onRegister = async () => {
+      if (!username.value || !email.value || !password.value) {
+        alert('이름, 이메일, 비밀번호를 모두 입력해주세요.')
+        return
+      }
+
       try {
         loading.value = true
         const { user } = await auth.createUserWithEmailAndPassword(email.value, password.value)
@@ -43,19 +48,18 @@ export default {
         alert("회원 가입에 성공하셨습니다. 로그인 해주세요.")
         router.push('/login')
       } catch(e) {
-        // console.log("create user with email and password error:", e)
         switch (e.code) {
           case 'auth/invalid-email' :
-            alert('잘못된 이메일 형식입니다.')
+            alert('이메일을 바르게 입력해주세요.')
             break
-          case 'auth/wrong-password' :
-            alert('비밀번호가 틀립니다.')
+          case 'auth/week-password' :
+            alert('비밀번호가 너무 쉬워요.')
             break
-          case 'auth/user-not-found' :
-            alert('등록되지 않은 사용자 입니다.')
+          case 'auth/email-already-in-use' :
+            alert('이미 가입되어 있는 이메일 입니다.')
             break
           default:
-            alert(e.message)
+            alert('회원가입 실패')
             break
         }
         alert(e.message)

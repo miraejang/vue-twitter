@@ -13,7 +13,10 @@ export default {
   components: { AuthedLayout, UnauthLayout },
   setup() {
     const route = useRoute()
-    const layout = computed(() => route.meta.layout || 'AuthedLayout' )    
+    const layout = computed(() => {
+      console.log(route.meta.layout)
+      return route.meta.layout || 'AuthedLayout'
+      } )    
     
     return { layout }
   },

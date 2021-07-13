@@ -23,7 +23,7 @@
       </div>
       <!-- profile button -->
       <div class="mt-3 relative">
-        <button class="px-2 py-1 xl:w-full h-12 rounded-full xl:hover:bg-blue-50 flex items-center" @click="showProfileDropdown = true">
+        <button class="px-2 py-1 w-full h-12 rounded-full xl:hover:bg-blue-50 flex items-center justify-center" @click="showProfileDropdown = true">
           <img src="https://picsum.photos/100" class="w-10 h-10 rounded-full xl:hover-opacity-100 hover:opacity-70" alt="">
           <div class="ml-2 hidden xl:block">
             <p class="text-sm font-bold">이름</p>

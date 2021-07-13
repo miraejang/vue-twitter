@@ -22,8 +22,8 @@
         </div>
       </div>
       <!-- profile button -->
-      <div class="mt-3 flex justify-center">
-        <button class="px-2 py-1 xl:w-full h-12 rounded-full xl:hover:bg-blue-50 flex items-center">
+      <div class="mt-3 relative">
+        <button class="px-2 py-1 xl:w-full h-12 rounded-full xl:hover:bg-blue-50 flex items-center" @click="showProfileDropdown = true">
           <img src="https://picsum.photos/100" class="w-10 h-10 rounded-full xl:hover-opacity-100 hover:opacity-70" alt="">
           <div class="ml-2 hidden xl:block">
             <p class="text-sm font-bold">이름</p>
@@ -31,6 +31,18 @@
           </div>
           <i class="ml-auto fas fa-ellipsis-h fa-fw text-xs hidden xl:block"></i>
         </button>
+        <!-- profile dropdown menu -->
+        <div class="absolute bottom-6/5 right-0 shadow rounded-lg w-60 bg-white transform" v-if="showProfileDropdown" @click="showProfileDropdown = false">
+          <button class="hover:bg-gray-50 border-b border-default flex p-3 w-full items-center">
+            <img src="https://picsum.photos/200" class="w-10 h-10 rounded-full" alt="">
+            <div class="ml-2">
+              <div class="font-bold text-sm">mirae@nate.com</div>
+              <div class="text-left text-light text-sm">@mirae</div>
+            </div>
+            <i class="fas fa-checke text-primary ml-auto"></i>
+          </button>
+          <button class="p-3 hover:bg-gray-50 w-full text-left text-sm" @click="onLogout">@mirae 계정에서 로그아웃</button>
+        </div>
       </div>
     </div>
 
@@ -42,15 +54,25 @@
 <script>
 import { ref, onBeforeMount } from "vue"
 import router from "/src/router"
+import { auth } from "/src/firebase";
+import store from "/src/store";
 
 export default {
   setup() {
     const routes = ref([])
+    const showProfileDropdown = ref(false)
+
+    const onLogout = async () => {
+      await auth.signOut()
+      store.commit("SET_USER", null)
+      await router.replace('/login')
+    }
+
     onBeforeMount(() => {
       routes.value = router.options.routes
     })
     
-    return { routes }
+    return { routes, showProfileDropdown, onLogout }
   },
 }
 </script>

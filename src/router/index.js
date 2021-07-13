@@ -24,4 +24,9 @@ const router = createRouter({
   routes
 })
 
+// router.beforeEach((from, to, next) => {
+//   router.push('/login')
+//   next()
+// })
+
 export default router

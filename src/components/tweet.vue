@@ -1,10 +1,10 @@
 <template>
   <div class="flex p-3 border-b border-gray-100 hover:bg-gray-50 cursor-pointer">
-    <img :src="currentUser.profile_image_url" class="w-10 h-10 mr-3 rounded-full hover:opacity-70" alt="">
+    <img :src="tweet.profile_image_url" class="w-10 h-10 mr-3 rounded-full hover:opacity-70" alt="">
     <div class="flex flex-1 flex-col space-y-1">
       <div class="text-sm space-x-1">
-        <span class="font-bold">{{ tweet.uid }}</span>
-        <span class="text-gray-500 text-xs">@{{ tweet.uid }}</span>
+        <span class="font-bold">{{ tweet.email }}</span>
+        <span class="text-gray-500 text-xs">@{{ tweet.username }}</span>
         <span> · </span>
         <span class="text-gray-500 text-xs">{{ moment(tweet.created_at).fromNow() }}</span>
       </div>

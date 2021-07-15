@@ -14,9 +14,8 @@ export default {
   setup() {
     const route = useRoute()
     const layout = computed(() => {
-      console.log(route.meta.layout)
       return route.meta.layout || 'AuthedLayout'
-      } )    
+      })    
     
     return { layout }
   },

@@ -4,11 +4,11 @@
     <div class="w-1/4 xl:ml-5 pt-5 pl-5 pr-5 pb-5 flex flex-col justify-between border-r border-gray-200">
       <div class="flex flex-col items-center xl:items-start">
         <!-- logo -->
-        <i class="fab fa-twitter text-3xl text-primary ml-4 mb-3"></i>
+        <i class="fab fa-twitter text-3xl text-primary xl:ml-4 mb-3"></i>
         <!-- menu -->
         <div class="flex flex-col items-start space-y-1">
-          <router-link :to="route.path" :class="`hover:text-primary hover:bg-blue-50 px-4 py-2 rounded-full cursor-pointer ${router.currentRoute.value.name == route.name ? 'text-primary' : ''}`" v-for="route in routes" :key="route">
-            <div v-if="route.meta.isMenu">
+          <router-link :to="route.path" :class="`hover:text-primary hover:bg-blue-50 p-2 xl:px-4 rounded-full cursor-pointer ${router.currentRoute.value.name == route.name ? 'text-primary' : ''}`" v-for="route in routes" :key="route">
+            <div>
               <i class="text-2xl" :class="route.icon"></i>
               <span class="ml-3 text-lg hidden xl:inline-block">{{ route.title }}</span>
             </div>
@@ -70,7 +70,7 @@ export default {
     }
 
     onBeforeMount(() => {
-      routes.value = router.options.routes
+      routes.value = router.options.routes.filter(route => route.meta.isMenu === true)
     })
     
     return { routes, showProfileDropdown, onLogout, currentUser, router }

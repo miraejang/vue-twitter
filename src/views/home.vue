@@ -17,7 +17,7 @@
           </div>
         </div>
         <!-- tweets -->
-        <tweet-form v-for="tweet in 10" :key="tweet" :currentUser="currentUser"></tweet-form>
+        <tweet-form :currentUser="currentUser" :tweet="tweet" v-for="tweet in tweets" :key="tweet.id"></tweet-form>
       </div>
     </div>
     <!-- trend section -->
@@ -28,7 +28,7 @@
 <script>
 import TrendSection from "../components/trends.vue"
 import TweetForm from "../components/tweet.vue"
-import { ref, computed } from "vue";
+import { ref, computed, onBeforeMount } from "vue";
 import store from "/src/store";
 import { TWEET_COLLECTION } from "/src/firebase";
 
@@ -37,6 +37,21 @@ export default {
   setup() {
     const tweetBody = ref('')
     const currentUser = computed(() => store.state.user)
+    const tweets = ref([])
+
+    onBeforeMount(() => {
+      TWEET_COLLECTION.orderBy('created_at', 'desc').onSnapshot(snapshot => {
+        snapshot.docChanges().forEach(change => {
+          if (change.type === 'added') {
+            tweets.value.splice(change.newIndex, 0, change.doc.data())
+          } else if (change.type === 'modified') {
+            tweets.value.splice(change.oldIndex, 1, change.doc.data())
+          } else if (change.type === 'removed') {
+            tweets.value.splice(change.oldIndex, 1)
+          }
+        })
+      })
+    })
 
     const onAddTweeet = async () => {
       try {
@@ -55,7 +70,7 @@ export default {
       }
     }
 
-    return { tweetBody, currentUser, onAddTweeet }
+    return { tweetBody, currentUser, tweets, onAddTweeet }
   },
 }
 </script>

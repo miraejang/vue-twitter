@@ -7,16 +7,17 @@
         <div class="border-b border-gray-100 px-3 py-2 font-bold text-lg">홈</div>
         <!-- tweeting section -->
         <div class="flex p-3 border-b-8 border-gray-100">
-          <img src="https://picsum.photos/200" class="w-10 h-10 mr-2 rounded-full hover:opacity-70 cursor-pointer" alt="">
+          <img :src="currentUser.profile_image_url" class="w-10 h-10 mr-2 rounded-full hover:opacity-70 cursor-pointer" alt="">
           <div class="flex flex-1 flex-col">
-            <textarea class="w-full text-lg font-bold focus:outline-none resize-none" placeholder="무슨 일이 일어나고 있나요?"></textarea>
+            <textarea v-model="tweetBody" class="w-full text-lg font-bold focus:outline-none resize-none" placeholder="무슨 일이 일어나고 있나요?"></textarea>
             <div class="text-right">
-              <button class="bg-primary hover:bg-dark text-sm font-bold text-white mt-3 px-4 py-2 rounded-full">트윗</button>
+              <button v-if="!tweetBody.length" class="bg-light text-sm font-bold text-white mt-3 px-4 py-2 rounded-full">트윗</button>
+              <button v-else @click="onAddTweeet" class="bg-primary hover:bg-dark text-sm font-bold text-white mt-3 px-4 py-2 rounded-full">트윗</button>
             </div>
           </div>
         </div>
         <!-- tweets -->
-        <tweet-form v-for="tweet in 10" :key="tweet"></tweet-form>
+        <tweet-form v-for="tweet in 10" :key="tweet" :currentUser="currentUser"></tweet-form>
       </div>
     </div>
     <!-- trend section -->
@@ -27,9 +28,35 @@
 <script>
 import TrendSection from "../components/trends.vue"
 import TweetForm from "../components/tweet.vue"
+import { ref, computed } from "vue";
+import store from "/src/store";
+import { TWEET_COLLECTION } from "/src/firebase";
 
 export default {
-  components: { TrendSection, TweetForm }
+  components: { TrendSection, TweetForm },
+  setup() {
+    const tweetBody = ref('')
+    const currentUser = computed(() => store.state.user)
+
+    const onAddTweeet = async () => {
+      try {
+        const doc = TWEET_COLLECTION.doc()
+        await doc.set({
+          id: doc.id,
+          tweet_body: tweetBody.value,
+          uid: currentUser.value.uid,
+          created_at: Date.now(),
+          num_comments: 0,
+          num_retweets: 0,
+          num_links: 0,
+        })
+      } catch (e) {
+        console.log('on add tweet wrror on homepage: ', e)
+      }
+    }
+
+    return { tweetBody, currentUser, onAddTweeet }
+  },
 }
 </script>
 

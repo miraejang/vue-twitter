@@ -15,7 +15,7 @@
           </router-link>
         </div>
         <div class="mt-3 w-full flex justify-center">
-          <button class="bg-primary text-white xl:w-full w-12 h-12 rounded-full hover:bg-dark">
+          <button @click="showTweetModal = true" class="bg-primary text-white xl:w-full w-12 h-12 rounded-full hover:bg-dark">
             <span class="hidden xl:block">Tweet</span>
             <i class="fas fa-plus xl:hidden"></i>
           </button>
@@ -48,6 +48,8 @@
 
     <!-- content -->
     <router-view></router-view>
+
+    <tweet-modal v-if="showTweetModal" @closeModal="showTweetModal = false"></tweet-modal>
   </div>
 </template>
 
@@ -56,11 +58,14 @@ import { ref, onBeforeMount, computed } from "vue"
 import router from "/src/router"
 import { auth } from "/src/firebase";
 import store from "/src/store";
+import TweetModal from "/src/components/tweetModal";
 
 export default {
+  components: { TweetModal },
   setup() {
     const routes = ref([])
     const showProfileDropdown = ref(false)
+    const showTweetModal = ref(true)
     const currentUser = computed(() => store.state.user)
 
     const onLogout = async () => {
@@ -73,7 +78,7 @@ export default {
       routes.value = router.options.routes.filter(route => route.meta.isMenu === true)
     })
     
-    return { routes, showProfileDropdown, onLogout, currentUser, router }
+    return { routes, showProfileDropdown, showTweetModal, onLogout, currentUser, router }
   },
 }
 </script>

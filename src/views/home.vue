@@ -12,7 +12,7 @@
             <textarea v-model="tweetBody" class="w-full text-lg font-bold focus:outline-none resize-none" placeholder="무슨 일이 일어나고 있나요?"></textarea>
             <div class="text-right">
               <button v-if="!tweetBody.length" class="bg-light text-sm font-bold text-white mt-3 px-4 py-2 rounded-full">트윗</button>
-              <button v-else @click="onAddTweeet" class="bg-primary hover:bg-dark text-sm font-bold text-white mt-3 px-4 py-2 rounded-full">트윗</button>
+              <button v-else @click="onAddTweet" class="bg-primary hover:bg-dark text-sm font-bold text-white mt-3 px-4 py-2 rounded-full">트윗</button>
             </div>
           </div>
         </div>
@@ -26,11 +26,12 @@
 </template>
 
 <script>
-import TrendSection from "../components/trends.vue"
-import TweetForm from "../components/tweet.vue"
+import TrendSection from "/src/components/trends.vue"
+import TweetForm from "/src/components/tweet.vue"
 import { ref, computed, onBeforeMount } from "vue";
 import store from "/src/store";
 import { TWEET_COLLECTION, USER_COLLECTION } from "/src/firebase";
+import addTweet from "/src/untils/addTweet.js";
 
 export default {
   components: { TrendSection, TweetForm },
@@ -64,24 +65,16 @@ export default {
       return tweet
     }
 
-    const onAddTweeet = async () => {
+    const onAddTweet = async () => {
       try {
-        const doc = TWEET_COLLECTION.doc()
-        await doc.set({
-          id: doc.id,
-          tweet_body: tweetBody.value,
-          uid: currentUser.value.uid,
-          created_at: Date.now(),
-          num_comments: 0,
-          num_retweets: 0,
-          num_links: 0,
-        })
+        await addTweet(tweetBody.value, currentUser.value)
+        tweetBody.value = ''
       } catch (e) {
         console.log('on add tweet wrror on homepage: ', e)
       }
     }
 
-    return { tweetBody, currentUser, tweets, onAddTweeet }
+    return { tweetBody, currentUser, tweets, onAddTweet }
   },
 }
 </script>

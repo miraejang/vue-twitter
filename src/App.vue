@@ -1,7 +1,7 @@
 <template>
   <div class="flex h-screen container mx-auto">
     <!-- side menu -->
-    <side-menu v-if="false" :currentUser="currentUser"></side-menu>
+    <side-menu v-if="currentUser" :currentUser="currentUser"></side-menu>
 
     <!-- content -->
     <router-view></router-view>

@@ -65,7 +65,7 @@ export default {
   setup() {
     const routes = ref([])
     const showProfileDropdown = ref(false)
-    const showTweetModal = ref(true)
+    const showTweetModal = ref(false)
     const currentUser = computed(() => store.state.user)
 
     const onLogout = async () => {

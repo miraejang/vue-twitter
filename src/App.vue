@@ -1,23 +1,28 @@
 <template>
-  <component :is="layout"></component>
+  <div class="flex h-screen container mx-auto">
+    <!-- side menu -->
+    <side-menu v-if="false" :currentUser="currentUser"></side-menu>
+
+    <!-- content -->
+    <router-view></router-view>
+
+    <tweet-modal v-if="showTweetModal" @closeModal="showTweetModal = false"></tweet-modal>
+  </div>
 </template>
 
 <script>
-import { computed } from "vue"
-import { useRoute } from "vue-router"
-import AuthedLayout from "./pages/authed/App.vue"
-import UnauthLayout from "./pages/unauth/App.vue"
+import { ref, computed } from "vue"
+import store from "./store";
+import TweetModal from "./components/tweetModal";
+import SideMenu from './components/sideMenu.vue';
 
 export default {
-  name: 'App',
-  components: { AuthedLayout, UnauthLayout },
+  components: { TweetModal, SideMenu },
   setup() {
-    const route = useRoute()
-    const layout = computed(() => {
-      return route.meta.layout || 'AuthedLayout'
-      })    
+    const showTweetModal = ref(false)
+    const currentUser = computed(() => store.state.user)
     
-    return { layout }
+    return { showTweetModal, currentUser }
   },
 }
 </script>

@@ -1,6 +1,5 @@
 # vue-twitter-clone-coding
 
-<<<<<<< HEAD
 ## Project setup
 ```
 npm install
@@ -23,9 +22,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-=======
 
 ```
 git subtree push --prefix dist origin gh-pages
 ```
->>>>>>> 96a2348... Create README.md

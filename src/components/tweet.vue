@@ -16,7 +16,7 @@
           <span class="ml-1 text-sm">{{ tweet.num_comments }}</span>
         </div>
         <!-- retweet button -->
-        <div class="text-gray-500 hover:green-500 rounded-full py-3">
+        <div @click="handleRetweet(tweet)" class="text-gray-500 hover:green-500 rounded-full py-3">
           <i class="fas fa-retweet hover:bg-green-50"></i>
           <span class="ml-1 text-sm">{{ tweet.num_retweets }}</span>
         </div>
@@ -39,6 +39,7 @@
 import moment from "moment";
 import { ref } from "vue";
 import commentModal from './commentModal.vue';
+import handleRetweet from "/src/untils/handleRetweet.js";
 
 export default {
   components: { commentModal },
@@ -46,10 +47,8 @@ export default {
   setup() {
     const showCommentModal = ref(false)
 
-    return { moment, showCommentModal }
+    return { moment, showCommentModal, handleRetweet }
   }
-  
-
 }
 </script>
 

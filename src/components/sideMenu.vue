@@ -42,6 +42,7 @@
         <button class="p-3 hover:bg-gray-50 w-full text-left text-sm" @click="onLogout">@{{ currentUser.username }} 계정에서 로그아웃</button>
       </div>
     </div>
+    <tweet-modal v-if="showTweetModal" @closeModal="showTweetModal = false"></tweet-modal>
   </div>
 </template>
 
@@ -50,13 +51,16 @@ import { ref, onBeforeMount } from "vue";
 import { auth } from "/src/firebase";
 import router from "/src/router"
 import store from "/src/store";
+import TweetModal from "/src/components/tweetModal";
 
 
 export default {
   props: ['currentUser'],
+  components: { TweetModal },
   setup() {
     const routes = ref([])
     const showProfileDropdown = ref(false)
+    const showTweetModal = ref(false)
 
     const onLogout = async () => {
       await auth.signOut()
@@ -68,7 +72,7 @@ export default {
       routes.value = router.options.routes.filter(route => route.meta.isMenu === true)
     })
 
-    return { router, routes, showProfileDropdown, onLogout }
+    return { router, routes, showProfileDropdown, showTweetModal, onLogout }
   }
 }
 </script>

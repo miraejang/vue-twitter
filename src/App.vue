@@ -5,24 +5,20 @@
 
     <!-- content -->
     <router-view></router-view>
-
-    <tweet-modal v-if="showTweetModal" @closeModal="showTweetModal = false"></tweet-modal>
   </div>
 </template>
 
 <script>
-import { ref, computed } from "vue"
+import { computed } from "vue"
 import store from "./store";
-import TweetModal from "./components/tweetModal";
 import SideMenu from './components/sideMenu.vue';
 
 export default {
-  components: { TweetModal, SideMenu },
+  components: { SideMenu },
   setup() {
-    const showTweetModal = ref(false)
     const currentUser = computed(() => store.state.user)
     
-    return { showTweetModal, currentUser }
+    return { currentUser }
   },
 }
 </script>

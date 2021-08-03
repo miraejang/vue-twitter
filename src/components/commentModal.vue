@@ -64,7 +64,7 @@ export default {
 
     const onCommentTweet = async () => {
       try {
-        const doc = COMMENT_COLLECTION.doc();
+        const doc = COMMENT_COLLECTION.doc()
         await doc.set({
           id: doc.id,
           from_tweet_id: props.tweet.id,
@@ -74,11 +74,11 @@ export default {
         })
 
         await TWEET_COLLECTION.doc(props.tweet.id).update({
-          num_commnets: firebase.firestore.FieldValue.increment(1)
+          num_comments: firebase.firestore.FieldValue.increment(1)
         })
         emit('close-modal')
       } catch (e) {
-        console.log("on comment tweet error", e);
+        console.log("on comment tweet error: ", e);
       }
     }
 

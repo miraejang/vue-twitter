@@ -1,4 +1,4 @@
-import { TWEET_COLLECTION } from "../firebase";
+import { TWEET_COLLECTION } from "/src/firebase";
 
 export default (tweetBody, currentUser) => {
   return new Promise((resolve, reject) => {

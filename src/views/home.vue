@@ -30,8 +30,9 @@ import TrendSection from "/src/components/trends.vue"
 import TweetForm from "/src/components/tweet.vue"
 import { ref, computed, onBeforeMount } from "vue";
 import store from "/src/store";
-import { TWEET_COLLECTION, USER_COLLECTION } from "/src/firebase";
+import { TWEET_COLLECTION } from "/src/firebase";
 import addTweet from "/src/untils/addTweet.js";
+import getTweetInfo from "/src/untils/getTweetInfo.js";
 
 export default {
   components: { TrendSection, TweetForm },
@@ -43,7 +44,7 @@ export default {
     onBeforeMount(() => {
       TWEET_COLLECTION.orderBy('created_at', 'desc').onSnapshot(snapshot => {
         snapshot.docChanges().forEach(async (change) => {
-          let tweet = await getUserInfo(change.doc.data())
+          let tweet = await getTweetInfo(change.doc.data(), currentUser.value)
           
           if (change.type === 'added') {
             tweets.value.splice(change.newIndex, 0, tweet)
@@ -55,15 +56,6 @@ export default {
         })
       })
     })
-
-    const getUserInfo = async (tweet) => {
-      const doc = await USER_COLLECTION.doc(tweet.uid).get()
-      tweet.profile_image_url = doc.data().profile_image_url
-      tweet.email = doc.data().email
-      tweet.username = doc.data().username
-      // tweet = {...tweet, ...doc.data()}
-      return tweet
-    }
 
     const onAddTweet = async () => {
       try {

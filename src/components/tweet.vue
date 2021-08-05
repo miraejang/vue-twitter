@@ -12,22 +12,22 @@
       <div class="flex justify-between">
         <!-- comment button -->
         <div @click="showCommentModal = true" class="text-gray-500 hover:text-primary rounded-full py-3">
-          <i class="far fa-comment hover:bg-blue-50"></i>
+          <i class="far fa-comment hover:bg-blue-50 p-2 rounded-full"></i>
           <span class="ml-1 text-sm">{{ tweet.num_comments }}</span>
         </div>
         <!-- retweet button -->
-        <div @click="handleRetweet(tweet)" class="text-gray-500 hover:green-500 rounded-full py-3">
-          <i class="fas fa-retweet hover:bg-green-50"></i>
+        <div @click="handleRetweet(tweet)" :class="[tweet.isRetweeted ? 'text-green-400' : '']" class="text-gray-500 hover:text-green-500 rounded-full py-3">
+          <i class="fas fa-retweet hover:bg-green-50 p-2 rounded-full"></i>
           <span class="ml-1 text-sm">{{ tweet.num_retweets }}</span>
         </div>
         <!-- link button -->
-        <div class="text-gray-500 hover:red-500 rounded-full py-3">
-          <i class="far fa-heart hover:bg-green-50"></i>
+        <div class="text-gray-500 hover:text-red-500 rounded-full py-3">
+          <i class="far fa-heart hover:bg-red-50 p-2 rounded-full"></i>
           <span class="ml-1 text-sm">{{ tweet.num_links }}</span>
         </div>
         <!-- share button -->
-        <div class="text-gray-500 hover:green-500 rounded-full py-3">
-          <i class="far fa-share-square"></i>
+        <div class="text-gray-500 hover:text-green-500 rounded-full py-3">
+          <i class="far fa-share-square hover:bg-blue-50 p-2 rounded-full"></i>
         </div>
       </div>
     </div>

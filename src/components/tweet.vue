@@ -21,9 +21,9 @@
           <span class="ml-1 text-sm">{{ tweet.num_retweets }}</span>
         </div>
         <!-- link button -->
-        <div class="text-gray-500 hover:text-red-500 rounded-full py-3">
+        <div @click="handleLikes(tweet)"  :class="[tweet.isLiked ? 'text-red-500' : '']"  class="text-gray-500 hover:text-red-500 rounded-full py-3">
           <i class="far fa-heart hover:bg-red-50 p-2 rounded-full"></i>
-          <span class="ml-1 text-sm">{{ tweet.num_links }}</span>
+          <span class="ml-1 text-sm">{{ tweet.num_likes }}</span>
         </div>
         <!-- share button -->
         <div class="text-gray-500 hover:text-green-500 rounded-full py-3">
@@ -40,6 +40,7 @@ import moment from "moment";
 import { ref } from "vue";
 import commentModal from './commentModal.vue';
 import handleRetweet from "/src/untils/handleRetweet.js";
+import handleLikes from "/src/untils/handleLikes.js";
 
 export default {
   components: { commentModal },
@@ -47,7 +48,7 @@ export default {
   setup() {
     const showCommentModal = ref(false)
 
-    return { moment, showCommentModal, handleRetweet }
+    return { moment, showCommentModal, handleRetweet, handleLikes }
   }
 }
 </script>

@@ -28,7 +28,7 @@
               <div class="text-sm">{{ tweet.tweet_body }}</div>
               <div>
                 <span class="text-primary text-sm">@{{ tweet.username }}</span>
-                <span class="text-gray text-sm">누구님에게 보내는 답글</span>
+                <span class="text-gray text-sm">님에게 보내는 답글</span>
               </div>
             </div>
           </div>

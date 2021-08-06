@@ -8,7 +8,7 @@
         <span> · </span>
         <span class="text-gray-500 text-xs">{{ moment(tweet.created_at).fromNow() }}</span>
       </div>
-      <div>{{ tweet.tweet_body }}</div>
+      <router-link :to="`/tweet/${tweet.id}`">{{ tweet.tweet_body }}</router-link>
       <div class="flex justify-between">
         <!-- comment button -->
         <div @click="showCommentModal = true" class="text-gray-500 hover:text-primary rounded-full py-3">

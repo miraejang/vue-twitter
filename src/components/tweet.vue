@@ -21,7 +21,7 @@
           <span class="ml-1 text-sm">{{ tweet.num_retweets }}</span>
         </div>
         <!-- link button -->
-        <div @click="handleLikes(tweet)"  :class="[tweet.isLiked ? 'text-red-500' : '']"  class="text-gray-500 hover:text-red-500 rounded-full py-3">
+        <div @click="handleLikes(tweet)" :class="[tweet.isLiked ? 'text-red-500' : '']" class="text-gray-500 hover:text-red-500 rounded-full py-3">
           <i class="far fa-heart hover:bg-red-50 p-2 rounded-full"></i>
           <span class="ml-1 text-sm">{{ tweet.num_likes }}</span>
         </div>

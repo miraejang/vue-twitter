@@ -14,7 +14,6 @@ export default async (tweet) => {
         num_likes: firebase.firestore.FieldValue.increment(-1)
       })
     } else {
-      console.log('not isLiked');
       // not isLiked
       const doc = LIKES_COLLECTION.doc()
       await doc.set({

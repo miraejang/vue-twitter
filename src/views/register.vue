@@ -2,11 +2,11 @@
   <div class="flex flex-col flex-1 items-center space-y-4 mt-10">
     <i :class="`fab fa-twitter text-4xl text-primary ${loading ? 'animate-bounce' : ''}`"></i>
     <p class="text-2xl font-bold">뜨위떠 회원가입</p>
-    <input v-model="username" type="text" class="w-96 px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:border-primary" placeholder="아이디">
-    <input v-model="email" type="email" class="w-96 px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:border-primary" placeholder="이메일">
-    <input v-model="password" type="password" class="w-96 px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:border-primary" placeholder="비밀번호">
+    <input v-model="username" type="text" class="w-96 px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:border-primary" placeholder="아이디" />
+    <input v-model="email" type="email" class="w-96 px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:border-primary" placeholder="이메일" />
+    <input v-model="password" type="password" class="w-96 px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:border-primary" placeholder="비밀번호" />
     <button v-if="loading" class="w-96 rounded bg-light text-white py-3">회원가입 중입니다.</button>
-    <button v-else @click ="onRegister" class="w-96 rounded bg-primary text-white py-3 hover:bg-dark">회원가입</button>
+    <button v-else @click="onRegister" class="w-96 rounded bg-primary text-white py-3 hover:bg-dark">회원가입</button>
     <router-link to="/login">
       <button class="text-primary">계정이 이미 있으신가요? 로그인 하기</button>
     </router-link>
@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import { ref } from "vue"
-import { auth, USER_COLLECTION } from "/src/firebase";
-import { useRouter } from 'vue-router';
+import { ref } from 'vue'
+import { auth, USER_COLLECTION } from '/src/firebase'
+import { useRouter } from 'vue-router'
 
 export default {
   setup() {
@@ -44,19 +44,19 @@ export default {
           num_tweets: 0,
           followers: [],
           followings: [],
-          create_at: Date.now()
+          create_at: Date.now(),
         })
-        alert("회원 가입에 성공하셨습니다. 로그인 해주세요.")
+        alert('회원 가입에 성공하셨습니다. 로그인 해주세요.')
         router.push('/login')
-      } catch(e) {
+      } catch (e) {
         switch (e.code) {
-          case 'auth/invalid-email' :
+          case 'auth/invalid-email':
             alert('이메일을 바르게 입력해주세요.')
             break
-          case 'auth/week-password' :
+          case 'auth/week-password':
             alert('비밀번호가 너무 쉬워요.')
             break
-          case 'auth/email-already-in-use' :
+          case 'auth/email-already-in-use':
             alert('이미 가입되어 있는 이메일 입니다.')
             break
           default:
@@ -68,9 +68,9 @@ export default {
         loading.value = false
       }
     }
-    
+
     return { username, email, password, loading, onRegister }
-  }
+  },
 }
 </script>
 

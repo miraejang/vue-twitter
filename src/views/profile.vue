@@ -15,7 +15,7 @@
       <!-- profile image -->
       <div class="h-40 bg-gray-300 relative flex-none">
         <div class="absolute -bottom-14 left-2- w-28 h-28 rounded-full border-4 border-white bg-gray-100">
-          <img :src="profileUser.profile_image_url" class="rounded-full opacity-90 hover:opacity-100 cursor-pointer" alt="">
+          <img :src="profileUser.profile_image_url" class="rounded-full opacity-90 hover:opacity-100 cursor-pointer" alt="" />
         </div>
       </div>
       <!-- profile edit button -->
@@ -39,10 +39,34 @@
       </div>
       <!-- tabs -->
       <div class="flex justify-between border-b border-default mt-3">
-        <div @click="currentTab = 'tweets'" :class="currentTab === 'tweets' ? 'border-b border-primary text-primary' : 'text-light'" class="w-1/4 py-3 font-bold text-center hover:bg-blue-50 hover:text-primary cursor-pointer">Tweets</div>
-        <div @click="currentTab = 'replies'" :class="currentTab === 'replies' ? 'border-b border-primary text-primary' : 'text-light'" class="w-1/4 py-3 font-bold text-center hover:bg-blue-50 hover:text-primary cursor-pointer">Tweets & repiles</div>
-        <div @click="currentTab = 'media'" :class="currentTab === 'media' ? 'border-b border-primary text-primary' : 'text-light'" class="w-1/4 py-3 font-bold text-center hover:bg-blue-50 hover:text-primary cursor-pointer">Media</div>
-        <div @click="currentTab = 'likes'" :class="currentTab === 'likes' ? 'border-b border-primary text-primary' : 'text-light'" class="w-1/4 py-3 font-bold text-center hover:bg-blue-50 hover:text-primary cursor-pointer">Likes</div>
+        <div
+          @click="currentTab = 'tweets'"
+          :class="currentTab === 'tweets' ? 'border-b border-primary text-primary' : 'text-light'"
+          class="w-1/4 py-3 font-bold text-center hover:bg-blue-50 hover:text-primary cursor-pointer"
+        >
+          Tweets
+        </div>
+        <div
+          @click="currentTab = 'replies'"
+          :class="currentTab === 'replies' ? 'border-b border-primary text-primary' : 'text-light'"
+          class="w-1/4 py-3 font-bold text-center hover:bg-blue-50 hover:text-primary cursor-pointer"
+        >
+          Tweets & repiles
+        </div>
+        <div
+          @click="currentTab = 'media'"
+          :class="currentTab === 'media' ? 'border-b border-primary text-primary' : 'text-light'"
+          class="w-1/4 py-3 font-bold text-center hover:bg-blue-50 hover:text-primary cursor-pointer"
+        >
+          Media
+        </div>
+        <div
+          @click="currentTab = 'likes'"
+          :class="currentTab === 'likes' ? 'border-b border-primary text-primary' : 'text-light'"
+          class="w-1/4 py-3 font-bold text-center hover:bg-blue-50 hover:text-primary cursor-pointer"
+        >
+          Likes
+        </div>
       </div>
       <!-- tweets -->
       <div class="overflow-y-scroll">
@@ -56,8 +80,8 @@
 
 <script>
 import { computed, ref, onBeforeMount } from '@vue/runtime-core'
-import TrendSection from "../components/trends.vue"
-import TweetForm from "../components/tweet.vue"
+import TrendSection from '../components/trends.vue'
+import TweetForm from '../components/tweet.vue'
 import store from '../store'
 import { LIKES_COLLECTION, RETWEET_COLLECTION, TWEET_COLLECTION, USER_COLLECTION } from '../firebase'
 import getTweetInfo from '../untils/getTweetInfo'
@@ -80,17 +104,16 @@ export default {
     onBeforeMount(() => {
       const profileUID = route.params.uid ?? currentUser.value.uid
 
-      USER_COLLECTION.doc(profileUID).onSnapshot(doc => {
+      USER_COLLECTION.doc(profileUID).onSnapshot((doc) => {
         profileUser.value = doc.data()
       })
 
-      TWEET_COLLECTION
-        .where('uid', '==', profileUID)
+      TWEET_COLLECTION.where('uid', '==', profileUID)
         .orderBy('created_at', 'desc')
-        .onSnapshot(snapshot => {
-          snapshot.docChanges().forEach(async change => {
+        .onSnapshot((snapshot) => {
+          snapshot.docChanges().forEach(async (change) => {
             let tweet = await getTweetInfo(change.doc.data(), currentUser.value)
-            
+
             if (change.type === 'added') {
               tweets.value.splice(change.newIndex, 0, tweet)
             } else if (change.type === 'modified') {
@@ -101,14 +124,13 @@ export default {
           })
         })
 
-      RETWEET_COLLECTION
-        .where('uid', '==', profileUID)
+      RETWEET_COLLECTION.where('uid', '==', profileUID)
         .orderBy('created_at', 'desc')
-        .onSnapshot(snapshot => {
-          snapshot.docChanges().forEach(async change => {
+        .onSnapshot((snapshot) => {
+          snapshot.docChanges().forEach(async (change) => {
             const doc = await TWEET_COLLECTION.doc(change.doc.data().from_tweet_id).get()
             let tweet = await getTweetInfo(doc.data(), currentUser.value)
-            
+
             if (change.type === 'added') {
               replies.value.splice(change.newIndex, 0, tweet)
             } else if (change.type === 'modified') {
@@ -119,14 +141,13 @@ export default {
           })
         })
 
-      LIKES_COLLECTION
-        .where('uid', '==', profileUID)
+      LIKES_COLLECTION.where('uid', '==', profileUID)
         .orderBy('created_at', 'desc')
-        .onSnapshot(snapshot => {
-          snapshot.docChanges().forEach(async change => {
+        .onSnapshot((snapshot) => {
+          snapshot.docChanges().forEach(async (change) => {
             const doc = await TWEET_COLLECTION.doc(change.doc.data().from_tweet_id).get()
             let tweet = await getTweetInfo(doc.data(), currentUser.value)
-            
+
             if (change.type === 'added') {
               likes.value.splice(change.newIndex, 0, tweet)
             } else if (change.type === 'modified') {
@@ -139,7 +160,7 @@ export default {
     })
 
     return { currentUser, tweets, replies, media, likes, moment, currentTab, profileUser, router }
-  }
+  },
 }
 </script>
 

@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '/src/views/home.vue'
-import TwitterMessages from "/src/views/messages.vue"
-import TwitterNotifications from "/src/views/notifications.vue"
-import TwitterProfile from "/src/views/profile.vue"
-import TwitterRegister from "/src/views/register.vue"
-import TwitterLogin from "/src/views/login.vue"
-import TweetDetail from "/src/views/tweetDetail.vue"
-import store from "/src/store";
+import TwitterMessages from '/src/views/messages.vue'
+import TwitterNotifications from '/src/views/notifications.vue'
+import TwitterProfile from '/src/views/profile.vue'
+import TwitterRegister from '/src/views/register.vue'
+import TwitterLogin from '/src/views/login.vue'
+import TweetDetail from '/src/views/tweetDetail.vue'
+import store from '/src/store'
 
 const routes = [
   { path: '/', name: 'home', component: Home, title: '홈', icon: 'fas fa-home fa-fw', meta: { isMenu: true, requireAuth: true } },
@@ -25,7 +25,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
 })
 
 // navigation guard

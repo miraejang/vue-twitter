@@ -9,15 +9,15 @@
 </template>
 
 <script>
-import { computed } from "vue"
-import store from "./store";
-import SideMenu from './components/sideMenu.vue';
+import { computed } from 'vue'
+import store from './store'
+import SideMenu from './components/sideMenu.vue'
 
 export default {
   components: { SideMenu },
   setup() {
     const currentUser = computed(() => store.state.user)
-    
+
     return { currentUser }
   },
 }

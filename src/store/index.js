@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import createPersistedState from "vuex-persistedstate"
+import createPersistedState from 'vuex-persistedstate'
 
 const store = createStore({
   state() {
@@ -10,7 +10,7 @@ const store = createStore({
   mutations: {
     SET_USER: (state, user) => {
       state.user = user
-    }
+    },
   },
   plugins: [createPersistedState()],
 })

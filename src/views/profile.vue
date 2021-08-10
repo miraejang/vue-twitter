@@ -13,14 +13,17 @@
         </div>
       </div>
       <!-- profile image -->
-      <div class="h-40 bg-gray-300 relative flex-none">
+      <div class="h-48 bg-gray-300 relative flex-none">
+        <img :src="profileUser.background_image_url" alt="" class="w-full h-48 object-cover" />
         <div class="absolute -bottom-14 left-2- w-28 h-28 rounded-full border-4 border-white bg-gray-100">
-          <img :src="profileUser.profile_image_url" class="rounded-full opacity-90 hover:opacity-100 cursor-pointer" alt="" />
+          <img :src="profileUser.profile_image_url" class="w-full h-full rounded-full opacity-90 hover:opacity-100 cursor-pointer" alt="" />
         </div>
       </div>
       <!-- profile edit button -->
-      <div class="text-right mt-2 mr-2">
-        <button class="border-2 text-primary border-primary px-3 py-1 hover:bg-blue-50 font-bold rounded-full">Edit profile</button>
+      <div class="text-right mt-2 mr-2 h-10">
+        <button v-if="currentUser.uid === profileUser.uid" @click="showProfileEditModal = true" class="border-2 text-primary border-primary px-3 py-1 hover:bg-blue-50 font-bold rounded-full">
+          Edit profile
+        </button>
       </div>
       <!-- user info -->
       <div class="mx-3 mt-2">
@@ -75,6 +78,7 @@
     </div>
     <!-- trend section -->
     <trend-section></trend-section>
+    <profile-edit-modal v-if="showProfileEditModal" @close-modal="showProfileEditModal = false"></profile-edit-modal>
   </div>
 </template>
 
@@ -88,9 +92,10 @@ import getTweetInfo from '../untils/getTweetInfo'
 import moment from 'moment'
 import { useRoute } from 'vue-router'
 import router from '../router'
+import ProfileEditModal from '../components/profileEditModal.vue'
 
 export default {
-  components: { TrendSection, TweetForm },
+  components: { TrendSection, TweetForm, ProfileEditModal },
   setup() {
     const currentUser = computed(() => store.state.user)
     const profileUser = ref(null)
@@ -99,6 +104,7 @@ export default {
     const media = ref([])
     const likes = ref([])
     const currentTab = ref('tweets')
+    const showProfileEditModal = ref(false)
     const route = useRoute()
 
     onBeforeMount(() => {
@@ -159,7 +165,7 @@ export default {
         })
     })
 
-    return { currentUser, tweets, replies, media, likes, moment, currentTab, profileUser, router }
+    return { currentUser, tweets, replies, media, likes, moment, currentTab, profileUser, router, showProfileEditModal }
   },
 }
 </script>

@@ -15,15 +15,24 @@
       <!-- profile image -->
       <div class="h-48 bg-gray-300 relative flex-none">
         <img :src="profileUser.background_image_url" alt="" class="w-full h-48 object-cover" />
-        <div class="absolute -bottom-14 left-2- w-28 h-28 rounded-full border-4 border-white bg-gray-100">
-          <img :src="profileUser.profile_image_url" class="w-full h-full rounded-full opacity-90 hover:opacity-100 cursor-pointer" alt="" />
+        <div class="absolute -bottom-14 left-2- w-32 h-32 rounded-full border-4 border-white bg-gray-100">
+          <img :src="profileUser.profile_image_url" class="w-full h-full rounded-full opacity-90 hover:opacity-100 cursor-pointer object-cover" alt="" />
         </div>
       </div>
       <!-- profile edit button -->
       <div class="text-right mt-2 mr-2 h-10">
-        <button v-if="currentUser.uid === profileUser.uid" @click="showProfileEditModal = true" class="border-2 text-primary border-primary px-3 py-1 hover:bg-blue-50 font-bold rounded-full">
-          Edit profile
-        </button>
+        <div v-if="currentUser.uid === profileUser.uid">
+          <button @click="showProfileEditModal = true" class="border-2 text-primary border-primary px-3 py-1 hover:bg-blue-50 font-bold rounded-full">Edit profile</button>
+        </div>
+        <div v-else>
+          <div @click="onUnfollow" v-if="currentUser.followings.includes(profileUser.uid)" class="relative">
+            <button class="text-sm bg-primary text-white px-3 py-2 font-bold rounded-full">Following</button>
+            <button class="text-sm bg-pink-700 text-white px-3 py-2 font-bold rounded-full">Unfollowing</button>
+          </div>
+          <div @click="onFollow" v-else>
+            <button class="border-2 text-primary border-primary px-3 py-1 hover:bg-blue-50 font-bold rounded-full">Follow</button>
+          </div>
+        </div>
       </div>
       <!-- user info -->
       <div class="mx-3 mt-2">
@@ -93,6 +102,7 @@ import moment from 'moment'
 import { useRoute } from 'vue-router'
 import router from '../router'
 import ProfileEditModal from '../components/profileEditModal.vue'
+import firebase from 'firebase'
 
 export default {
   components: { TrendSection, TweetForm, ProfileEditModal },
@@ -164,8 +174,31 @@ export default {
           })
         })
     })
+    const onFollow = async () => {
+      await USER_COLLECTION.doc(currentUser.value.uid).update({
+        following: firebase.firestore.FieldValue.arrayUnion(profileUser.value.uid),
+      })
 
-    return { currentUser, tweets, replies, media, likes, moment, currentTab, profileUser, router, showProfileEditModal }
+      await USER_COLLECTION.doc(profileUser.value.uid).update({
+        followers: firebase.firestore.FieldValue.arrayUnion(currentUser.value.uid),
+      })
+
+      store.commit('SET_FOLLOW', profileUser.value.uid)
+    }
+
+    const onUnfollow = async () => {
+      await USER_COLLECTION.doc(currentUser.value.uid).update({
+        following: firebase.firestore.FieldValue.arrayRemove(profileUser.value.uid),
+      })
+
+      await USER_COLLECTION.doc(profileUser.value.uid).update({
+        followers: firebase.firestore.FieldValue.arrayRemove(currentUser.value.uid),
+      })
+
+      store.commit('SET_UN_FOLLOW', profileUser.value.uid)
+    }
+
+    return { currentUser, tweets, replies, media, likes, moment, currentTab, profileUser, router, showProfileEditModal, onFollow, onUnfollow }
   },
 }
 </script>

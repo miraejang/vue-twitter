@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-1" v-if="profileUser">
+  <div class="flex flex-1">
     <div class="flex-1 border-r border-default">
       <div class="flex flex-col" v-if="tweet">
         <!-- title -->

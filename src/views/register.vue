@@ -45,7 +45,7 @@ export default {
           num_tweets: 0,
           followers: [],
           followings: [],
-          create_at: Date.now(),
+          created_at: Date.now(),
         })
         alert('회원 가입에 성공하셨습니다. 로그인 해주세요.')
         router.push('/login')
